@@ -10,6 +10,13 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const MOON_LINE =
   "Four billion years of wishes, howls, and 2 a.m. promises — and not one of you has ever wished me a good night back.";
 
+// The line must stay exactly 115 characters — the competition counts it.
+if (MOON_LINE.length !== 115) {
+  throw new Error(
+    `moon line is ${MOON_LINE.length} characters, expected 115`,
+  );
+}
+
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", MOON_LINE, "utf8");
 console.log(MOON_LINE);
